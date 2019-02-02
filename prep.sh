@@ -10,6 +10,3 @@ wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.0rc1/pro
 unzip ./protoc-3.7.0-rc1-linux-x86_64.zip
 export PATH=$PATH:$PWD/bin
 go get -u github.com/golang/protobuf/protoc-gen-go
-
-echo "Running server"
-go run src/google.golang.org/grpc/examples/helloworld/greeter_server/main.go
