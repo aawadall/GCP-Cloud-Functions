@@ -27,7 +27,7 @@ func main() {
 		log.Fatalf("Failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterEventsServer(s, %sever{})
+	pb.RegisterEventsServer(s, &sever{})
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to server %v", err)
 	}
