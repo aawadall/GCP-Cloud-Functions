@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ca.fingorithms.vaults";
+option java_outer_classname = "VaultsProto";
+
+package vaults;
+
+// The greeting service definition.
+service Events {
+  // Main Event Handler
+  rpc Event (EventRequest) returns (EventReply) {}
+}
+
+
+// Test new message type
+message EventRequest {
+  string event_class = 1;
+  string atm_id = 2;
+}
+
+message EventReply {
+  string message = 1;
+}

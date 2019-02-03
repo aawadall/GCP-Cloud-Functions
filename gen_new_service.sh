@@ -1,3 +1,3 @@
 export PATH=$PATH:$PWD/bin
-cd $PWD/src/google.golang.org/grpc/examples/helloworld/
-protoc -I helloworld/ helloworld/helloworld.proto --go_out=plugins=grpc:helloworld
+cd $PWD/src/vaults/
+protoc -I vaults/ vaults/vaults.proto --go_out=plugins=grpc:vaults
