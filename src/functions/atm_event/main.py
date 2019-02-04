@@ -1,9 +1,9 @@
 import base64
 
 def atm_event(data, context):
-    print(base64.b64decode(data))
+    print("Message received")
     if 'data' in data:
-        name = base64.b64decode(data['data'])
+        name = "Data"
     else:
         name = 'Default Name'
     print('Name: {}'.format(name))
