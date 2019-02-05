@@ -19,16 +19,16 @@ import (
 
 )
 
+type Event struct {
+	EventClass 	string
+	TerminalID	string 
+	Notes		string
+}
+
 // HelloWorld prints the JSON encoded "message" field in the body
 // of the request or "Hello, World!" if there isn't one.
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	
-	type Event struct {
-		EventClass 	string
-		TerminalID	string 
-		Notes		string
-	}
-
 	event := Event{
 		EventClass: "cash_swap",
 		TerminalID: "ATM0000",
@@ -47,4 +47,9 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Fprint(w, html.EscapeString(d.Message))
+}
+
+func write_to_bucket(event Event, object_name string)  {
+
+	return
 }
