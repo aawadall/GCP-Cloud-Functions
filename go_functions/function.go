@@ -32,8 +32,13 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if d.Message == "" {
-		w, err := json.Marshal(event)	
-		//fmt.Fprint(w, "dMsg:"+r.Method)
+		pl, err := json.Marshal(event)	
+		if err != nil {
+			fmt.Fprint(w, pl)
+		}
+		else {
+			fmt.Fprint(w, "DEFAULT")
+		}
 		return
 	}
 	fmt.Fprint(w, html.EscapeString(d.Message))
