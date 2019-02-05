@@ -21,7 +21,7 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	event := Event{
 		EventClass: "cash_swap",
 		TerminalID: "ATM0000",
-		Notes: "TBC"
+		Notes: "TBC",
 	}
 
 	var d struct {
