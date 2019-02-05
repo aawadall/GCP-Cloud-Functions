@@ -35,8 +35,7 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		pl, err := json.Marshal(event)	
 		if err != nil {
 			fmt.Fprint(w, pl)
-		}
-		else {
+		} else {
 			fmt.Fprint(w, "DEFAULT")
 		}
 		return
