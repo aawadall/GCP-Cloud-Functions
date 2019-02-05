@@ -19,11 +19,7 @@ type Event struct {
 // of the request or "Hello, World!" if there isn't one.
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	
-	event := Event{
-		EventClass: "cash_swap",
-		TerminalID: "ATM0000",
-		Notes: "TBC",
-	}
+	log.Println("Inside HelloWorld")
 
 	
 	var d struct {
