@@ -6,17 +6,6 @@ import (
 	"fmt"
 	"html"
 	"net/http"
-	"bytes"
-	"io"
-	"io/ioutil"
-	"strings"
-	"cloud.google.com/go/storage"
-    "golang.org/x/net/context"
-    "google.golang.org/api/iterator"
-    "google.golang.org/appengine"
-    "google.golang.org/appengine/file"
-    "google.golang.org/appengine/log"
-
 )
 
 type Event struct {
@@ -47,9 +36,4 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Fprint(w, html.EscapeString(d.Message))
-}
-
-func write_to_bucket(event Event, object_name string)  {
-
-	return
 }
