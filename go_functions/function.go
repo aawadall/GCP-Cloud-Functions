@@ -31,9 +31,10 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if d.Message == "" {
-		fmt.Fprint(w, "dMsg:" +r)
-		log.Println(r)
+		fmt.Fprint(w, "dMsg:" )
+		
 		return
 	}
+	log.Println(d.Message)
 	fmt.Fprint(w, html.EscapeString(d.Message))
 }
