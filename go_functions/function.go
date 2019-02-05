@@ -19,7 +19,7 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if d.Message == "" {
-		fmt.Fprint(w, "Hello World! " + r.Method)
+		fmt.Fprint(w, r.Method)
 		return
 	}
 	fmt.Fprint(w, html.EscapeString(d.Message))
