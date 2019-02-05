@@ -6,6 +6,17 @@ import (
 	"fmt"
 	"html"
 	"net/http"
+	"bytes"
+	"io"
+	"io/ioutil"
+	"strings"
+	"cloud.google.com/go/storage"
+    "golang.org/x/net/context"
+    "google.golang.org/api/iterator"
+    "google.golang.org/appengine"
+    "google.golang.org/appengine/file"
+    "google.golang.org/appengine/log"
+
 )
 
 // HelloWorld prints the JSON encoded "message" field in the body
@@ -32,12 +43,7 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if d.Message == "" {
-		pl, err := json.Marshal(event)	
-		if err != nil {
-			fmt.Fprint(w, pl)
-		} else {
-			fmt.Fprint(w, "DEFAULT")
-		}
+		fmt.Fprint(w, "dMsg:" +r.Method)
 		return
 	}
 	fmt.Fprint(w, html.EscapeString(d.Message))
