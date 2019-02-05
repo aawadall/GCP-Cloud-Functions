@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"html"
 	"net/http"
+	"log"
 )
 
 type Event struct {
@@ -24,15 +25,18 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		Notes: "TBC",
 	}
 
+	
 	var d struct {
 		Message string `json:"message"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&d); err != nil {
-		fmt.Fprint(w, "ERR:" +r.Method)
+		fmt.Fprint(w, "No Message")
+		log.Println("No Message")
 		return
 	}
 	if d.Message == "" {
-		fmt.Fprint(w, "dMsg:" +r.Method)
+		fmt.Fprint(w, "dMsg:" +r.Message)
+		log.Println(r.Message)
 		return
 	}
 	fmt.Fprint(w, html.EscapeString(d.Message))
