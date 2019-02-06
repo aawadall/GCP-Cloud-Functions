@@ -24,8 +24,6 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	log.Println("Received HTTP Request: " + r.Method)
 	log.Println("Protocol: "+r.Proto)
 	
-	body, err := r.GetBody()
-
 	var d struct {
 		Message string `json:"message"`
 	}
