@@ -20,7 +20,10 @@ type Event struct {
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	
 	log.Println("Inside HelloWorld")
-
+	log.Println("Received HTTP Request: " + r.Method)
+	log.Println("Protocol: "+r.Proto)
+	
+	body, err := r.GetBody()
 	
 	var d struct {
 		Message string `json:"message"`
@@ -31,7 +34,7 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if d.Message == "" {
-		fmt.Fprint(w, "dMsg:" )
+		fmt.Fprint(w, "dMsg empty" )
 		
 		return
 	}
