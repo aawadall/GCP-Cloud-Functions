@@ -26,7 +26,10 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	body, err := r.GetBody()
 
 	if err == nil {
-		log.Println("Body: " + body)
+		buf := new(bytes.Buffer)
+		buf.ReadFrom(body)
+		bdy := buf.String()
+		log.Println("Body: " + bdy)
 	}
 	var d struct {
 		Message string `json:"message"`
