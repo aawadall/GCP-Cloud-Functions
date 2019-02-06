@@ -23,7 +23,11 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	log.Println("Inside HelloWorld")
 	log.Println("Received HTTP Request: " + r.Method)
 	log.Println("Protocol: "+r.Proto)
-	
+	body, err := r.GetBody()
+
+	if err == nil {
+		log.Println("Body: " + body)
+	}
 	var d struct {
 		Message string `json:"message"`
 	}
