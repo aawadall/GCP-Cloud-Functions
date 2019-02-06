@@ -7,6 +7,7 @@ import (
 	"html"
 	"net/http"
 	"log"
+	"io"
 )
 
 type Event struct {
@@ -24,7 +25,7 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	log.Println("Protocol: "+r.Proto)
 	
 	body, err := r.GetBody()
-	
+
 	var d struct {
 		Message string `json:"message"`
 	}
