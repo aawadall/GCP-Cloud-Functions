@@ -7,7 +7,7 @@ import (
 	"html"
 	"net/http"
 	"log"
-	"io"
+
 )
 
 type Event struct {
