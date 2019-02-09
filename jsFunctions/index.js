@@ -6,6 +6,7 @@
  */
 exports.helloWorld = (req, res) => {
     if(req.body.message === undefined) {
+        console.log('No message defined');
         res.status(400).send('No Message Defined!');
     }  else {
         console.log(req.body.message);
