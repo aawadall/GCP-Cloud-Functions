@@ -5,6 +5,11 @@
  * @param {!express:Response} res HTTP response context.
  */
 exports.helloWorld = (req, res) => {
-    let message = req.query.message || req.body.message || 'Hello World!';
-    res.status(200).send(message);
+    if(req.body.message === undefined) {
+        res.status(400).send('No Message Defined!');
+    }  else {
+        console.log(req.body.message);
+        let message = req.query.message || req.body.message || 'Hello World!';
+        res.status(200).send(message);
+    }
 };
