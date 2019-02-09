@@ -11,7 +11,7 @@ exports.helloPubSub = (event, context) => {
     console.log("New Event=====");
     console.log(Buffer.from(pubsubMessage, 'base64').toString());
     console.log("Attributes:");
-    pubsubAttributes.forEach(a => console.log("ATTR"));
+    console.log(pubsubAttributes);
     /*    .forEach( a => {
         console.log(Buffer.from(a, 'base64').toString());
     });*/
