@@ -5,6 +5,13 @@
  * @param {!Object} context Metadata for the event.
  */
 exports.helloPubSub = (event, context) => {
-    const pubsubMessage = event.data; //
+    const pubsubMessage = event.data;
+    const pubsubAttributes = event.attributes;
+
+    console.log("New Event=====")
     console.log(Buffer.from(pubsubMessage, 'base64').toString());
+    console.log("Attributes:")
+    pubsubAttributes.forEach( a => {
+        console.log(Buffer.from(a, 'base64').toString());
+    });
 };
